@@ -9,6 +9,15 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: #364;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #393939;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
