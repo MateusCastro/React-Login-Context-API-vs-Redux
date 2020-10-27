@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Redirect, Route } from 'react-router-dom';
 
+import { useAuth } from '../contexts/auth';
+
 interface Props {
   path: string,
   component: React.FC,
@@ -12,7 +14,7 @@ interface Props {
 const RouteWrapper: React.FC<Props> = ({
   path, component, isPrivate, exact,
 }) => {
-  const signed = true;
+  const { signed } = useAuth();
 
   if (isPrivate && !signed) {
     return <Redirect to="/login" />;
