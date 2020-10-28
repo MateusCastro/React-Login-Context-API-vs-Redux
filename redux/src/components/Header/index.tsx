@@ -1,15 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 
-const Header: React.FC = () => (
-  <Container>
-    <div>
-      <h1>Voltar pra Home</h1>
-      <Link to="/login">Sair</Link>
-    </div>
-  </Container>
-);
+import { useAuth } from '../../contexts/auth';
 
+const Header: React.FC = () => {
+  const { signIn, user } = useAuth();
+
+  return (
+    <Container>
+      <div>
+        <h1>
+          Bem vindo,
+          {' '}
+          {user?.login}
+        </h1>
+        <div onClick={() => signIn(null)} aria-hidden="true">
+
+          <span>Sair</span>
+        </div>
+      </div>
+    </Container>
+  );
+};
 export default Header;

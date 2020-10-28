@@ -12,10 +12,11 @@ export const Container = styled.div`
     max-width: 1200px;
     margin: auto;
 
-    a {
+    span {
       color: #fff;
       text-decoration: none;
       font-size: 20px;
+      cursor: pointer;
     }
   }
 `;
