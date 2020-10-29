@@ -1,6 +1,10 @@
 import React from 'react';
 
+import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
+import { User } from '../common/types';
+
+import { ApplicationState } from '../store';
 
 interface Props {
   path: string,
@@ -12,13 +16,15 @@ interface Props {
 const RouteWrapper: React.FC<Props> = ({
   path, component, isPrivate, exact,
 }) => {
-  const signed = true;
+  const user = useSelector<ApplicationState, User>(
+    (state) => state.user,
+  );
 
-  if (isPrivate && !signed) {
+  if (isPrivate && !user.login) {
     return <Redirect to="/login" />;
   }
 
-  if (!isPrivate && signed) {
+  if (!isPrivate && user.login) {
     return <Redirect to="/" />;
   }
 

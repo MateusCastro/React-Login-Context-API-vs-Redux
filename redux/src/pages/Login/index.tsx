@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
+import { signInSuccess } from '../../store/modules/user/actions';
 import { Container, ContainerLogin } from './styles';
 
 const Login: React.FC = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,7 +14,7 @@ const Login: React.FC = () => {
     if (email === '' || password === '') {
       alert('Preencha os campos do login');
     } else {
-      // signIn({ login: email });
+      dispatch(signInSuccess({ login: email }));
     }
   }
 
