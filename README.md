@@ -1,6 +1,6 @@
 # React login: Context vs Redux
 
-Esse projeto foi criado para estudar a diferença entre Context e Redux no gerenciamento do estado da aplicação.
+Esse projeto foi criado para estudar as diferenças entre Context e Redux no gerenciamento do estado da aplicação.
 
 ---
 
@@ -30,7 +30,7 @@ npm start
 
 Os dois projetos usam a mesma estrutura, com exceção da forma como o estado da aplicação está configurado, claro.
 
-As aplicações têm duas telas, a de Login e a Home. Se o usuário estiver autenticado (essa informação virá do estado da aplicação) ele é redirecionado para a Home, caso contrário ele vai ser redirecionado para a tela de Login.
+As aplicações têm duas telas, a de Login e a Home. Se o usuário estiver autenticado (essa informação virá do estado da aplicação) ele é redirecionado para a Home, caso contrário ele será redirecionado para a tela de Login.
 
 ### Context
 
@@ -73,13 +73,13 @@ Para saber mais sobre o Redux, acesse a documentação do cliclando [aqui.](http
 
 ### Conclusão
 
-A necessidade da aplicação é armazenar dados referente ao usuário e token. Para aplicações que não precisa de muitas informações no estado e nem precisa de normalização de dados, não tem necessidade de implementar o Redux, a Context API está bem madura e atende a necessidade da maioria do casos.
+A necessidade da aplicação é armazenar dados referentes ao usuário e token. Para aplicações que não precisam de muitas informações no estado e nem precisam de normalização de dados, não tem necessidade de implementar o Redux, a Context API está bem madura e atende a necessidade na maioria do casos.
 
 A melhor alternativa foi usar a Context API, além de fazer parte do pacote React e não precisar de dependências de terceiros, foi preciso a criação de apenas 1 arquivo, deixando o projeto mais simples e mais fácil para manutenção. Para persistir os dados, foi utilizado o localStorage API.
 
-O Redux pode ser uma melhor alternativa se a aplicação precisar de grande quantidade de informações no estado, tem muita interação do estado em tela ou necessita de normalização dos dados.
+O Redux pode ser uma melhor alternativa se a aplicação precisar de grandes quantidades de informações no estado, tem muita interação no estado em tela ou necessita de normalização dos dados.
 
-Para usar o Redux na aplicação, foi necessário instalar 3 bibliotecas de terceiros, o redux, react-redux e o redux-persist. No caso, para fazer o login não fiz requisição na API, mas se precisasse iria ter que instalar mais outra biblioteca, o redux-saga e se quisesse simplificar a configuração do redux, poderia utilizar a biblioteca [redux-toolkit](https://redux-toolkit.js.org/), totalizando 5 bibliotecas de terceiros.
+Para usar o Redux na aplicação, foi necessário instalar 3 bibliotecas de terceiros, o redux, react-redux e o redux-persist. No caso, para fazer o login não fiz requisição na API, mas se precisasse iria ter que instalar mais outra biblioteca que funcionaria como middleware de requisições assíncronas, como por exemplo o redux sagas, e se quisesse simplificar a configuração do redux, poderia utilizar a biblioteca [redux-toolkit](https://redux-toolkit.js.org/), totalizando 5 bibliotecas de terceiros.
 
 Para configurar o redux foi preciso criar um estrutura mais complexa com 6 arquivos. Criar uma simples funcionalidade requer mexer em 2 a 3 arquivos diferentes, trazendo uma complexibilidade desnecessária para a aplicação. Dentro da própria documentação do redux tem a seguinte mensagem: "Se você não tem certeza que precisa utilizar o Redux, não use".
 
